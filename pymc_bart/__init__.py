@@ -27,6 +27,7 @@ from pymc_bart.utils import (
     plot_variable_inclusion,
     vi_to_kulprit,
 )
+from .dt_mh_sampler import MHDTBART
 
 __all__ = [
     "BART",
@@ -44,6 +45,7 @@ __all__ = [
     "plot_variable_inclusion",
     "vi_to_kulprit",
 ]
+__all__.append("MHDTBART", ...)
 __version__ = "0.11.0"
 
 
