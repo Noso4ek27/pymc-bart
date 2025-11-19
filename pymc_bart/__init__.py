@@ -27,6 +27,7 @@ from pymc_bart.utils import (
     plot_variable_inclusion,
     vi_to_kulprit,
 )
+from .dt_mh_sampler import MHDTBART
 
 __all__ = [
     "BART",
@@ -45,6 +46,7 @@ __all__ = [
     "vi_to_kulprit",
 ]
 __version__ = "0.11.0"
+__all__ += ["MHDTBART", "DecisionTable"]
 
 
-pm.STEP_METHODS = list(pm.STEP_METHODS) + [PGBART]
+pm.STEP_METHODS = list(pm.STEP_METHODS) + [MHDTBART]
