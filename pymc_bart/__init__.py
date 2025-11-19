@@ -45,6 +45,7 @@ __all__ = [
     "plot_variable_inclusion",
     "vi_to_kulprit",
 ]
+__all__.append("MHDTBART", ...)
 __version__ = "0.11.0"
 __all__ += ["MHDTBART", "DecisionTable"]
 
