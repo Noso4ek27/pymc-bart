@@ -14,6 +14,8 @@
 import pymc as pm
 
 from pymc_bart.bart import BART
+from pymc_bart.decision_table import DecisionTable, DecisionTableNode
+from pymc_bart.mh_sampler import MHDecisionTableSampler
 from pymc_bart.pgbart import PGBART
 from pymc_bart.split_rules import ContinuousSplitRule, OneHotSplitRule, SubsetSplitRule
 from pymc_bart.utils import (
@@ -27,11 +29,13 @@ from pymc_bart.utils import (
     plot_variable_inclusion,
     vi_to_kulprit,
 )
-from .dt_mh_sampler import MHDTBART
 
 __all__ = [
     "BART",
     "PGBART",
+    "DecisionTable",
+    "DecisionTableNode",
+    "MHDecisionTableSampler",
     "ContinuousSplitRule",
     "OneHotSplitRule",
     "SubsetSplitRule",
@@ -45,9 +49,7 @@ __all__ = [
     "plot_variable_inclusion",
     "vi_to_kulprit",
 ]
-__all__.append("MHDTBART", ...)
 __version__ = "0.11.0"
-__all__ += ["MHDTBART", "DecisionTable"]
 
 
-pm.STEP_METHODS = list(pm.STEP_METHODS) + [MHDTBART]
+pm.STEP_METHODS = list(pm.STEP_METHODS) + [PGBART, MHDecisionTableSampler]
